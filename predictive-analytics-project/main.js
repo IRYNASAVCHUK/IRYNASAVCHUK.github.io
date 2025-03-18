@@ -13,15 +13,17 @@ window.addEventListener('DOMContentLoaded', () => {
             document.querySelector('body').insertAdjacentHTML('beforeend', data);
         });
 });
-window.addEventListener('DOMContentLoaded', () => {
-    // Trova tutte le celle con la classe 'hours' nella tabella
+window.addEventListener('DOMContentLoaded', function() {
+    // Trova tutte le celle della tabella che contengono le ore
     const hoursCells = document.querySelectorAll('.hours');
 
-    // Somma le ore
+    // Variabile per tenere traccia del totale delle ore
     let totalHours = 0;
-    hoursCells.forEach(cell => {
-        const hours = parseFloat(cell.textContent.trim()); // Usa parseFloat e rimuovi eventuali spazi
-        if (!isNaN(hours)) { // Verifica che il valore sia un numero valido
+
+    // Somma le ore
+    hoursCells.forEach(function(cell) {
+        let hours = parseFloat(cell.textContent.trim()); // Assicurati che il valore sia numerico
+        if (!isNaN(hours)) { // Verifica che la cella contenga un numero valido
             totalHours += hours;
         }
     });
@@ -29,3 +31,4 @@ window.addEventListener('DOMContentLoaded', () => {
     // Visualizza il totale
     document.getElementById('total-hours').textContent = totalHours;
 });
+
