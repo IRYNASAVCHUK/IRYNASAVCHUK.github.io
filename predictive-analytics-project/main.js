@@ -20,7 +20,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // Somma le ore
     let totalHours = 0;
     hoursCells.forEach(cell => {
-        totalHours += parseFloat(cell.textContent);
+        const hours = parseFloat(cell.textContent.trim()); // Usa parseFloat e rimuovi eventuali spazi
+        if (!isNaN(hours)) { // Verifica che il valore sia un numero valido
+            totalHours += hours;
+        }
     });
 
     // Visualizza il totale
